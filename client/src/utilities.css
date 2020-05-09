@@ -17,74 +17,129 @@
 /* TODO: REPLACE WITH YOUR OWN FONT! */
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-:root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
-  --darkgrey: #d4d4d4;
-  --medgrey: #e0e0e0;
-  --grey: #f7f7f7;
-  --white: #fff;
+.topnav {
+  
+  height: 60px;
+}
+.nav.rightforgotpassword {
+  margin-left: auto;
+  right: 45px;
+  width: 200px;
+  }
+.nav {
+width: 100px;
 
-  --xs: 4px;
-  --s: 8px;
-  --m: 16px;
-  --l: 24px;
+
+font-size: 20px;
+}
+.nav:hover {
+height: 59px;
+}
+#logo {
+font-size: 35px;
+}
+.bodyOfPage {
+height: calc(100% - 60px);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+
+html, body, #root, .fullheight, .header
+{
+  height: 100%;
+  width: 100%;
+  color: black;
 }
 
-form {
-  flex-grow: 1;
-}
-
-.u-flex {
+.topnav {
+  background-color: rgb(248, 161, 176);
+  
+  
+  
+  border-bottom: 1px solid white;
   display: flex;
-}
+  flex-direction: row;
+  
+  
+  }
 
-.u-flexColumn {
+.nav {
   display: flex;
-  flex-direction: column;
-}
-
-.u-flex-justifyCenter {
   justify-content: center;
-}
-
-.u-flex-alignCenter {
   align-items: center;
-}
+  
+  /*text-align: center;*/
+  
+  
+  
+  
+  
+  
+  color: white;
+  font-family: 'Roboto';
+  font-weight: bold;
+  z-index: 2;
+  
+  }
 
-.u-inlineBlock {
-  display: inline-block;
-}
 
-.u-bold {
-  font-weight: 600;
-}
-
-.u-textCenter {
-  text-align: center;
-}
-
-.u-relative {
-  position: relative;
-}
-
-.u-pointer {
-  cursor: pointer;
-}
-
-.u-link {
-  color: var(--primary);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.u-link:hover {
-  color: var(--primary--dim);
-}
+  .right {
+    margin-left: auto;
+    right: 45px;
+    }
+    
+    
+      
+    
+    .toggle {
+      font-size: large;
+      
+      width:30px;
+    }
+    
+    
+    .bodyOfPage {
+    display: flex;
+    flex-direction: horizontal;
+    }
+    
+    .nav:hover {
+    color: white;
+    text-decoration: none;
+    background-color:rgb(200, 120, 130);
+    
+    
+    }
+    
+    #logo {
+    
+    
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: bold;
+    
+    
+    z-index: 1;
+    
+    
+    padding-top: 4px;
+    
+    
+    }
+    
+    .confirmalert {
+      
+        top: unset!important;
+        right: unset!important;
+        bottom: unset!important;
+        left: unset!important;
+        max-height: 126px;
+    }
+    .confirmdiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }

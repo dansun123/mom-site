@@ -1,1 +1,44 @@
-/* Fill me in :) */
+
+.carousel-caption {
+    background-color: lavender;
+    border: 2px solid rgb(60, 0, 180);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.black{
+    color: black;
+}
+
+.w2 {
+    width: 100%;
+    height: calc(100%-50px);
+}
+
+.FullHome {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #F7F7F7;
+    
+}
+
+
+.smaller {
+    
+    width: 70%;
+    height: 70%;
+    position: relative;
+    bottom: 0px;
+}
+
+.login {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    z-index: 10;
+}
