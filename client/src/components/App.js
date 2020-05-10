@@ -4,6 +4,9 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Profile from "./pages/Profile";
 import Blog from "./pages/Blog";
+import GoogleLogin, { GoogleLogout } from "react-google-login";
+const GOOGLE_CLIENT_ID = "618863434979-jo6ut11hs7dci0i01ber0cjkh0v5jcrm.apps.googleusercontent.com";
+
 
 import "../utilities.css";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -50,21 +53,41 @@ class App extends Component {
 
   render() {
     let publicContent = (
-      <Router>
-        <div>
-          <div className = "topnav">
-                {/* <div className="nav1"><Link to="/">Home</Link></div> */}
-                {this.state.ismobile ? <div className="nav toggle" onClick={() => this.toggleSidebar()}>&#9776;</div> : ""}
-                <div id="logo">Happy Mother's Day!!!</div>
+      // <Router>
+      //   <div>
+      //     <div className = "topnav">
+      //           {/* <div className="nav1"><Link to="/">Home</Link></div> */}
+      //           {this.state.ismobile ? <div className="nav toggle" onClick={() => this.toggleSidebar()}>&#9776;</div> : ""}
+      //           <div id="logo">Happy Mother's Day!!!</div>
+      //     </div>
+      //     <Skeleton
+      //       default
+      //       handleLogin={this.handleLogin}
+      //       handleLogout={this.handleLogout}
+      //       userId={this.state.userId}
+      //     />
+      //   </div>
+      // </Router>
+      <>
+      <div className = "login">
+            {this.state.userId ? (
+              <GoogleLogout
+                clientId={GOOGLE_CLIENT_ID}
+                buttonText="Logout"
+                onLogoutSuccess={this.handleLogout}
+                onFailure={(err) => console.log(err)}
+              />
+            ) : (
+              <GoogleLogin
+                clientId={GOOGLE_CLIENT_ID}
+                buttonText="Login"
+                onSuccess={this.handleLogin}
+                onFailure={(err) => console.log(err)}
+              />
+            )}
           </div>
-          <Skeleton
-            default
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userId={this.state.userId}
-          />
-        </div>
-      </Router>
+      <h1>Log in to see a surprise!</h1>
+      </>
     )
 
     const privateContent = (
@@ -125,7 +148,7 @@ class App extends Component {
       <>
         <div>
           {/* <button onClick = {this.handleLogout}>click me</button> */}
-        {this.state.userId ? privateContent : publicContent}
+        {(this.state.userId && (this.state.name==="Haihui Yu"||this.state.name==="Daniel Sun")) ? privateContent : publicContent}
         </div>
         {/* <button onClick = {() => {console.log(this.state)}}>click me</button> */}
       </>
