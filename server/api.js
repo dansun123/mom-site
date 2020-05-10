@@ -10,6 +10,7 @@
 const express = require("express");
 
 // import models so we can interact with the database
+const Post = require("./models/post");
 const User = require("./models/user");
 
 // import authentication library
@@ -36,6 +37,34 @@ router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
   if (req.user) socket.addUser(req.user, socket.getSocketFromSocketID(req.body.socketid));
   res.send({});
+});
+
+router.get("/posts", (req, res) => {
+  if (!req.user) {
+    // not logged in
+    return res.send({});
+  }
+  console.log(req.user._id)
+  Post.find({user_id: req.user._id}).then((posts)=> {
+    res.send(posts);
+  })
+});
+
+router.post("/post", (req, res) => {
+  if (!req.user) {
+    // not logged in
+    return res.send({});
+  }
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content,
+    time: req.body.time,
+    user_id: req.user._id,
+  });
+  post.save();
+  Post.find({user_id: req.user._id}).then((posts)=> {
+    res.send(posts);
+  })
 });
 
 // |------------------------------|

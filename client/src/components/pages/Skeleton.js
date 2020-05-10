@@ -27,7 +27,16 @@ class Skeleton extends Component {
     return (
       <>
         <div className = "topbar">
-          <h1 className = "title">Happy Mothers Day 🎉</h1>
+          <div className = "title">Mom, </div>
+          <div>
+          Recently I have been learning a bit of website development, which inspired me to build this 
+          site for you. I know you always take so much interest in my activites, so I wanted to share 
+          some of this newfound passion of mine. Click login, and you'll be redirected to your own page,
+          where I hope you can learn a little bit about how websites work, and maybe even use this page
+          to do some blogging, or maybe start a food diary.</div>
+
+          <div>Love you, Daniel</div>
+          <div>PS, I put some of my favorite pictures of our family below. Feel free to add your own!</div>
           
           <div className = "login">
             {this.props.userId ? (

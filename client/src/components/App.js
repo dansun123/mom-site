@@ -3,6 +3,7 @@ import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Profile from "./pages/Profile";
+import Blog from "./pages/Blog";
 
 import "../utilities.css";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -50,12 +51,19 @@ class App extends Component {
   render() {
     let publicContent = (
       <Router>
-        <Skeleton
-          default
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-          userId={this.state.userId}
-        />
+        <div>
+          <div className = "topnav">
+                {/* <div className="nav1"><Link to="/">Home</Link></div> */}
+                {this.state.ismobile ? <div className="nav toggle" onClick={() => this.toggleSidebar()}>&#9776;</div> : ""}
+                <div id="logo">Happy Mother's Day!!!</div>
+          </div>
+          <Skeleton
+            default
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+            userId={this.state.userId}
+          />
+        </div>
       </Router>
     )
 
@@ -75,6 +83,19 @@ class App extends Component {
           <Switch>
             <Profile
               path="/profile"
+              name={this.state.name}
+              userId={this.state.userId}
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
+              userId={this.state.userId}
+            />
+            <Blog
+              path="/blog"
+              name={this.state.name}
+              userId={this.state.userId}
+              handleLogin={this.handleLogin}
+              handleLogout={this.handleLogout}
+              userId={this.state.userId}
             />
             <Skeleton
               path="/"
@@ -103,6 +124,7 @@ class App extends Component {
     return (
       <>
         <div>
+          {/* <button onClick = {this.handleLogout}>click me</button> */}
         {this.state.userId ? privateContent : publicContent}
         </div>
         {/* <button onClick = {() => {console.log(this.state)}}>click me</button> */}
